@@ -2,8 +2,10 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
+            <div>
+            <div class="flex items-center justify-between mt-6 text-3xl text-bold bg-white px-5 py-3">PRIJAVITE SE</div>
+            </div>
         </x-slot>
-        
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -12,7 +14,7 @@
                 {{ session('status') }}
             </div>
         @endif
-
+            
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -34,20 +36,21 @@
             </div>
 
             <div class="flex items-center justify-end mt-5">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-red-600" href="{{ route('password.request') }}">
-                        {{ __('Zaboravljena lozinka?') }}
-                    </a>
-                @endif
 
                 <x-jet-button class="ml-4">
                     {{ __('Prijavi se') }}
                 </x-jet-button>
             </div>
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-between mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-red-600" href="{{ route('register') }}">
-                    {{ __('Kreiraj korisnički račun?') }}
+                    {{ __('Kreiraj korisnički račun') }}
                 </a>
+
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-red-600" href="{{ route('password.request') }}">
+                        {{ __('Zaboravljena lozinka?') }}
+                    </a>
+                @endif
             </div>
         </form>
     </x-jet-authentication-card>
