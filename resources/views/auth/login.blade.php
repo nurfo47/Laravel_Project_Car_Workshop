@@ -2,9 +2,6 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
-            <div>
-            <div class="flex items-center justify-between mt-6 text-3xl text-bold bg-white px-5 py-3">PRIJAVITE SE</div>
-            </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
