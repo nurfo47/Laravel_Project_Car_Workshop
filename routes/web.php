@@ -38,3 +38,5 @@ Route::middleware(['auth:sanctum','verified'])->group(function () {Route::get('/
 //-----------------------------Routes-----------------------------------------
 Route::middleware(['auth:sanctum','verified'])->get('cars', [CarController::class, 'index'])->name('cars');
 Route::middleware(['auth:sanctum','verified'])->get('brands', [BrandController::class, 'index'])->name('brands');
+Route::middleware(['auth:sanctum','verified'])->get('add_brand', [BrandController::class, 'create'])->name('add_brand');
+Route::middleware(['auth:sanctum','verified'])->post('store_brand', [BrandController::class, 'store'])->name('store_brand');
