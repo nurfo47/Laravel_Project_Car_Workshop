@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarWorker;
 use App\Models\Car;
+use App\Models\Brand;
+use App\Models\User;
+use App\Models\Costumer;
 use Illuminate\Http\Request;
 use DB;
 
@@ -15,9 +19,18 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars=DB::table('cars')
+        
+
+        $cars_in_lines=DB::table('cars')
+        ->select('cars.name as name','cars.model as model','cars.year as year','brands.name as bname', 'costumers.fname as fname', 'costumers.lname as lname')
+        ->join('costumers','cars.id_costumer','=','costumers.id')
+        ->join('brands','cars.id_brand','=','brands.id')
         ->get();
-        return view('cars.index', ['cars'=>$cars]);
+
+        return view('cars.index',['cars_in_lines' => $cars_in_lines]);
+        
+
+
     }
 
     /**
