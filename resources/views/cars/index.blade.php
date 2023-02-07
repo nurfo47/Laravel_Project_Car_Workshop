@@ -8,9 +8,9 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-2">
                     <h1 class="font-xl">AUTA</h1><hr>
-                    @foreach($cars as $car)
+                    @foreach($cars_in_lines as $cars_in_line)
                     
-                        <p class="p-2">{{$car->id_brand}} {{$car->name}} {{$car->model}} {{$car->year}} {{$car->motor_type}}</p>
+                        <p class="p-2">{{$loop->iteration}}. {{$cars_in_line->fname}} {{$cars_in_line->lname}} - {{$cars_in_line->bname}} - {{$cars_in_line->name}} - {{$cars_in_line->model}} - {{$cars_in_line->year}}</p>
                 
                     @endforeach
                     </div>
