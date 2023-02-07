@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('model');
-            $table->date('year');
+            $table->integer('year');
             $table->string('motor_type');
             $table->integer('id_brand');
             $table->integer('id_costumer');
