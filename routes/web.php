@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,4 @@ Route::middleware(['auth:sanctum','verified'])->group(function () {Route::get('/
 
 //-----------------------------Routes-----------------------------------------
 Route::middleware(['auth:sanctum','verified'])->get('cars', [CarController::class, 'index'])->name('cars');
+Route::middleware(['auth:sanctum','verified'])->get('brands', [BrandController::class, 'index'])->name('brands');
