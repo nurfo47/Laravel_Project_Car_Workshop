@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,6 @@ Route::middleware(['auth:sanctum','verified'])->group(function () {Route::get('/
     $response=Http::get("https://api.openweathermap.org/data/2.5/weather?lat={$lat}&lon={$lon}&cnt=5&appid={$api_key}&units=metric");
     return view('dashboard',[
         'currentWeather'=>$response->json()]);})->name('dashboard');});
+
+//-----------------------------Routes-----------------------------------------
+Route::middleware(['auth:sanctum','verified'])->get('cars', [CarController::class, 'index'])->name('cars');
