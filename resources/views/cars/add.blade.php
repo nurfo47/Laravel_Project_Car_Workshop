@@ -39,7 +39,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="year" value="{{ __('Godiste') }}" />
-                <x-jet-input id="year" class="block mt-1 w-full" type="date"  name="year" required autofocus />
+                <x-jet-input id="year" class="block mt-1 w-full" type="number"  name="year" required autofocus />
             </div>
 
             <div class="mt-4">
