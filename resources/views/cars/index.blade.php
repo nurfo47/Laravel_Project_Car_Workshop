@@ -6,7 +6,7 @@
                     <h1 class="font-xl">AUTA</h1><hr>
                     @foreach($cars as $car)
                     
-                        <p class="p-2">{{$car->name}} {{$car->model}} {{$car->year}} {{$car->motor_type}}</p></div>
+                        <p class="p-2">{{$car->id_brand}} {{$car->name}} {{$car->model}} {{$car->year}} {{$car->motor_type}}</p></div>
                 
                     @endforeach
                 </div>
