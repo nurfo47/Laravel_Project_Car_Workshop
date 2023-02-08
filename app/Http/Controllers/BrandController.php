@@ -46,8 +46,9 @@ class BrandController extends Controller
             'name'=>$request->name,
         ]);
 
-        return view('brands.add');
+        return view('brands');
     }
+
 
     /**
      * Display the specified resource.
