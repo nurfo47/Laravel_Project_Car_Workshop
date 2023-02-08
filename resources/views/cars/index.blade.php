@@ -10,7 +10,7 @@
                 <div class="grid grid-cols-4 gap-4 p-4 justify-items-center">
                 
                     @foreach($cars_in_lines as $cars_in_line)
-                        <div class="bg-gray-100 sm:rounded-lg shadow-md">
+                        <div class="bg-gray-100 sm:rounded-lg shadow-md w-11/12">
                         <p class="p-1 font-bold text-xl">{{$loop->iteration}}.</p>
                         <p class="p-1"><b>Vlasnik:</b> {{$cars_in_line->fname}} {{$cars_in_line->lname}}</p>
                         <p class="p-1"><b>Brend:</b> {{$cars_in_line->bname}}</p>
