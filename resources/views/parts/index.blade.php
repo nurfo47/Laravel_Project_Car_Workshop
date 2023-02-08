@@ -7,10 +7,10 @@
         
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <h1 class="text-xl p-2">DIJELOVI NA STANJU</h1><hr>
-                <div class="grid grid-cols-4 gap-4 p-4 justify-items-center">
+                <div class="grid grid-cols-4 gap-12 p-6 justify-items-center">
                 
                     @foreach($parts as $part)
-                        <div class="bg-gray-100 sm:rounded-lg shadow-md">
+                        <div class="bg-gray-100 sm:rounded-lg shadow-md w-11/12">
                         
                         <p class="p-1"><b>Naziv:</b> {{$part->pname}}</p>
                         <p class="p-1"><b>Cijena:</b> {{$part->price}}KM</p>
