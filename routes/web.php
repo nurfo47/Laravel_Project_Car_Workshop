@@ -44,6 +44,7 @@ Route::middleware(['auth:sanctum','verified'])->get('brands', [BrandController::
 Route::middleware(['auth:sanctum','verified'])->get('add_brand', [BrandController::class, 'create'])->name('add_brand');
 Route::middleware(['auth:sanctum','verified'])->post('store_brand', [BrandController::class, 'store'])->name('store_brand');
 //Routes for Form to add data to 3 tables
+Route::middleware(['auth:sanctum','verified'])->get('carworker', [CarWorkerController::class, 'index'])->name('carworker');
 Route::middleware(['auth:sanctum','verified'])->get('add_new', [CarWorkerController::class, 'create'])->name('add_new');
 Route::middleware(['auth:sanctum','verified'])->post('store_new', [CarWorkerController::class, 'store'])->name('store_new');
 // Routes for car parts
