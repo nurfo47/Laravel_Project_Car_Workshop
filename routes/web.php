@@ -50,3 +50,6 @@ Route::middleware(['auth:sanctum','verified'])->post('store_new', [CarWorkerCont
 Route::middleware(['auth:sanctum','verified'])->get('parts', [CarPartsController::class, 'index'])->name('parts');
 Route::middleware(['auth:sanctum','verified'])->get('add_part', [CarPartsController::class, 'create'])->name('add_part');
 Route::middleware(['auth:sanctum','verified'])->post('store_part', [CarPartsController::class, 'store'])->name('store_part');
+Route::middleware(['auth:sanctum','verified'])->post('delete_part', [CarPartsController::class, 'delete'])->name('delete_part');
+Route::middleware(['auth:sanctum','verified'])->post('edit_part', [CarPartsController::class, 'edit'])->name('edit_part');
+Route::middleware(['auth:sanctum','verified'])->post('update_part', [CarPartsController::class, 'update'])->name('update_part');
