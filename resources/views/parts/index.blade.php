@@ -14,6 +14,33 @@
                         
                         <p class="p-1"><b>Naziv:</b> {{$part->pname}}</p>
                         <p class="p-1"><b>Cijena:</b> {{$part->price}}KM</p>
+
+                        <!--*****************************EDIT PART BUTTON*************************************-->
+                        <div class="grid grid-cols-2 flex-2">
+                        <form method="POST" action="{{ route('edit_part')}}" >
+                            @csrf
+                            <input type="hidden" name="id" value="{{$part->id}}">
+                            <div class="p-2">
+                                <button class="ml-4 inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-800 border-transparent
+                                rounded-md font-semibold text-xs text-white uppercase ml-4">
+                                {{ __('Uredi') }}
+                                </button>
+                            </div>
+                        </form>
+                    
+                        <!--*****************************DELETE PART BUTTON*************************************-->
+                        
+                        <form method="POST" action="{{ route('delete_part')}}" >
+                            @csrf
+                            <input type="hidden" name="id" value="{{$part->id}}">
+                            <div class="p-2">
+                                <button class="ml-4 inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-800 border-transparent
+                                rounded-md font-semibold text-xs text-white uppercase ml-4">
+                                {{ __('Obrisi') }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                         
                         </div>
                     @endforeach
