@@ -16,7 +16,21 @@
                         <p class="p-1"><b>Brend:</b> {{$cars_in_line->bname}}</p>
                         <p class="p-1"><b>Naziv:</b> {{$cars_in_line->name}} {{$cars_in_line->model}}</p>
                         <p class="p-1"><b>Godina:</b> {{$cars_in_line->year}}</p>
+                        <!--*****************************EDIT PART BUTTON*************************************-->
+                        <div class="flex-2">
+                        <form method="" action="" >
+                            @csrf
+                            <input type="hidden" name="id" value="">
+                            <div class="p-2">
+                                <button class="ml-4 inline-flex items-center px-4 py-2 bg-blue-400 hover:bg-blue-200 border-transparent
+                                rounded-md font-semibold text-xs text-white uppercase ml-4">
+                                {{ __('Kreiraj račun') }}
+                                </button>
+                            </div>
+                        </form>
                         </div>
+                        </div>
+                        
                     @endforeach
                     </div>
                 </div>
