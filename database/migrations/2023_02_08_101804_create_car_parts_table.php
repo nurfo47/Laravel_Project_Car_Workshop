@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('pname');
             $table->double('price');
-            $table->integer('carworker_id');
+            $table->integer('carworker_id')->nullable();
         });
     }
 
