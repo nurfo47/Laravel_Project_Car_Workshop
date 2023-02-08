@@ -20,7 +20,7 @@ class CarController extends Controller
     public function index()
     {
         
-
+        //Ispis podataka o automobilu, ko je vlasnik tog automobila i kojem brendu
         $cars_in_lines=DB::table('cars')
         ->select('cars.name as name','cars.model as model','cars.year as year','brands.name as bname', 'costumers.fname as fname', 'costumers.lname as lname')
         ->join('costumers','cars.id_costumer','=','costumers.id')
