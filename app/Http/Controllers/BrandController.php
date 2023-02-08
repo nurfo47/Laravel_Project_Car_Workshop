@@ -46,7 +46,7 @@ class BrandController extends Controller
             'name'=>$request->name,
         ]);
 
-        return view('brands');
+        return redirect()->route('brands');
     }
 
 
