@@ -6,12 +6,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="p-2">
-                    <h1 class="font-xl">AUTA</h1><hr>
+                <div class="grid grid-cols-4 gap-4 p-4 justify-items-center">
+
                     @foreach($cars_in_lines as $cars_in_line)
-                    
-                        <p class="p-2">{{$loop->iteration}}. {{$cars_in_line->fname}} {{$cars_in_line->lname}} - {{$cars_in_line->bname}} - {{$cars_in_line->name}} - {{$cars_in_line->model}} - {{$cars_in_line->year}}</p>
-                
+                        <div class="bg-gray-100 sm:rounded-lg shadow-md">
+                        <p class="p-1 font-bold text-xl">{{$loop->iteration}}.</p>
+                        <p class="p-1"><b>Vlasnik:</b> {{$cars_in_line->fname}} {{$cars_in_line->lname}}</p>
+                        <p class="p-1"><b>Brend:</b> {{$cars_in_line->bname}}</p>
+                        <p class="p-1"><b>Naziv:</b> {{$cars_in_line->name}} {{$cars_in_line->model}}</p>
+                        <p class="p-1"><b>Godina:</b> {{$cars_in_line->year}}</p>
+                        </div>
                     @endforeach
                     </div>
                 </div>
