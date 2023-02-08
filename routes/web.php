@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CarWorkerController;
+use App\Http\Controllers\CarPartsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,7 @@ Route::middleware(['auth:sanctum','verified'])->post('store_brand', [BrandContro
 //Routes for Form to add data to 3 tables
 Route::middleware(['auth:sanctum','verified'])->get('add_new', [CarWorkerController::class, 'create'])->name('add_new');
 Route::middleware(['auth:sanctum','verified'])->post('store_new', [CarWorkerController::class, 'store'])->name('store_new');
+// Routes for car parts
+Route::middleware(['auth:sanctum','verified'])->get('parts', [CarPartsController::class, 'index'])->name('parts');
+Route::middleware(['auth:sanctum','verified'])->get('add_part', [CarPartsController::class, 'create'])->name('add_part');
+Route::middleware(['auth:sanctum','verified'])->post('store_part', [CarPartsController::class, 'store'])->name('store_part');
