@@ -6,8 +6,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <h1 class="text-xl p-2">RED ČEKANJA</h1><hr>
                 <div class="grid grid-cols-4 gap-4 p-4 justify-items-center">
-
+                
                     @foreach($cars_in_lines as $cars_in_line)
                         <div class="bg-gray-100 sm:rounded-lg shadow-md">
                         <p class="p-1 font-bold text-xl">{{$loop->iteration}}.</p>
