@@ -50,6 +50,12 @@ class CarPartsController extends Controller
         return redirect()->route('parts');
     }
 
+    public function delete(Request $request)
+    {
+        $id=$request->id;
+        CarParts::destroy($id);
+        return redirect()->route('parts');
+    }
     /**
      * Display the specified resource.
      *
@@ -67,9 +73,15 @@ class CarPartsController extends Controller
      * @param  \App\Models\CarParts  $carParts
      * @return \Illuminate\Http\Response
      */
-    public function edit(CarParts $carParts)
+    public function edit(Request $request)
     {
-        //
+        $id=$request->id;
+
+        $parts=DB::table('car_parts')
+        ->where('id',$id)
+        ->get();
+
+        return view('parts.edit',['parts'=>$parts]);
     }
 
     /**
@@ -79,9 +91,23 @@ class CarPartsController extends Controller
      * @param  \App\Models\CarParts  $carParts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CarParts $carParts)
+    public function update(Request $request)
     {
-        //
+        $id=$request->id;
+
+        $request->validate([
+            'pname'=>'required|string|max:255',
+            'price'=>'required|numeric',
+        ]);
+
+        $update_query=DB::table('car_parts')
+        ->where('id', $id)
+        ->update([
+            'pname'=>$request->pname,
+            'price'=>$request->price,
+        ]);
+        
+        return redirect()->route('parts');
     }
 
     /**
