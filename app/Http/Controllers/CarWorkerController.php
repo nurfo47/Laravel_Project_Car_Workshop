@@ -7,6 +7,7 @@ use App\Models\Car;
 use App\Models\Brand;
 use App\Models\User;
 use App\Models\Costumer;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use DB;
 class CarWorkerController extends Controller
@@ -18,7 +19,36 @@ class CarWorkerController extends Controller
      */
     public function index()
     {
-        //
+        //Ispisi radnike koji su zaprimili koje automobile i kojeg datuma
+        $worker_get_cars=DB::table('car__workers')
+        ->select('users.name as uname', 'cars.name as cname', 'cars.model as model', 'car__workers.date as date')
+        ->join('users','car__workers.worker_id','=','users.id')
+        ->join('cars','car__workers.car_id','=','cars.id')
+        ->get();
+
+        
+        //Ispisi koliko je koji radnik zaprimio automobila
+        $worker_mosts=DB::table('users')
+        ->select('users.*', DB::raw('count(*) as brojac'))
+        ->groupBy('users.id')
+        ->join('car__workers','users.id','=','car__workers.worker_id')
+        ->join('cars','car__workers.car_id','=','cars.id')
+        ->orderByRaw('COUNT(*) DESC')
+        ->get();
+
+        //Koliko svaki klijent treba da plati kojem radniku
+        $customer_payments=DB::table('payments')
+        ->select('costumers.fname as fname','costumers.lname as lname', 'users.name as uname', 'payments.total as total', 'payments.date as date')
+        ->join('costumers','payments.costumer_id','=','costumers.id')
+        ->join('car__workers','payments.carworker_id','=','car__workers.id')
+        ->join('users','car__workers.worker_id','=','users.id')
+        ->get();
+
+        return view('carworker.index',[
+            'worker_get_cars' => $worker_get_cars,
+            'worker_mosts' => $worker_mosts,
+            'customer_payments' => $customer_payments
+        ]);
     }
 
     /**
