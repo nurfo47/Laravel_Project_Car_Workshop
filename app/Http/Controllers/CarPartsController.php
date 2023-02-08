@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarParts;
 use Illuminate\Http\Request;
+use DB;
 
 class CarPartsController extends Controller
 {
@@ -14,7 +15,10 @@ class CarPartsController extends Controller
      */
     public function index()
     {
-        //
+        $parts=DB::table('car_parts')
+        ->get();
+
+        return view('parts.index',['parts'=>$parts]);
     }
 
     /**
@@ -24,7 +28,7 @@ class CarPartsController extends Controller
      */
     public function create()
     {
-        //
+        return view('parts.add');
     }
 
     /**
@@ -35,7 +39,15 @@ class CarPartsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'pname'=>'required|string|max:255',
+        ]);
+
+        DB::table('car_parts')->insert([
+            'pname'=>$request->pname,
+            'price'=>$request->price,
+        ]);
+        return redirect()->route('parts');
     }
 
     /**
