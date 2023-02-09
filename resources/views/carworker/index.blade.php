@@ -37,7 +37,7 @@
                 <hr>
 
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <h1 class="text-xl p-2">Koliko svaki klijent mora platiti kojem radniku</h1><hr>
+            <h1 class="text-xl p-2">Ispis računa svih klijenata koji trebaju platiti i kod kojeg radnika</h1><hr>
                 <div class="grid grid-cols-4 gap-4 p-4 justify-items-center">
                 
                     @foreach($customer_payments as $customer_payment)
@@ -46,7 +46,7 @@
                         <p class="p-1"><b>Ime:</b> {{$customer_payment->fname}}</p>
                         <p class="p-1"><b>Prezime:</b> {{$customer_payment->lname}}</p>
                         <p class="p-1"><b>Radnik:</b> {{$customer_payment->uname}}</p>
-                        <p class="p-1"><b>Ukupno:</b> {{$customer_payment->total}}</p>
+                        <p class="p-1"><b>Ukupna cijena:</b> {{$customer_payment->total}} KM</p>
                         <p class="p-1"><b>Datum:</b> {{$customer_payment->date}}</p>
                         
                         
